@@ -45,7 +45,7 @@ const BaseWrapper = styled(FullWrapper)<BaseWrapperProps>`
   ` : ''}
 `;
 
-export type ButtonVariant = 'primary' | 'secondary';
+export type ButtonVariant = 'primary' | 'secondary' | '';
 
 export type ButtonProps = {
     variant?: ButtonVariant;
