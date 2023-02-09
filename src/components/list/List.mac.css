@@ -1,0 +1,37 @@
+.list-ui {
+}
+.list-ui .header {
+    padding: 10px;
+    font-weight: 600;
+    color: #4a4847;
+}
+
+.list-ui .items-container {
+    background: #f2ebea;
+    color: #4a4847;
+    border: 1px solid #e7e0df;
+    border-radius: 4px;
+    font-size: 13px;
+}
+.list-ui .items-container .item.clickable:active {
+    background: rgb(235, 228, 227);
+}
+
+
+.list-ui .items-container .item {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e9e1e1;
+}
+.list-ui .items-container .item:last-child {
+    border-bottom: none;
+}
+.list-ui .items-container .item .description {
+    color: #8e8a89;
+}
+body {
+    background: #fff;
+}

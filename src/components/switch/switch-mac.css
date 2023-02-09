@@ -1,0 +1,123 @@
+
+
+.switch-ui {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.88);
+    font-size: 14px;
+    line-height: 22px;
+    list-style: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    position: relative;
+    display: inline-block;
+    min-width: 40px;
+    height: 22px;
+    vertical-align: middle;
+    background-color: rgba(220, 214, 215);
+    border: 1px solid rgb(215, 207, 207);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.switch-ui .switch-handle {
+    position: absolute;
+    top: 0;
+    inset-inline-start: -1px;
+    width: 20px;
+    height: 20px;
+    transition: all .2s ease-in-out;
+}
+.switch-ui .switch-inner {
+    display: block;
+    overflow: hidden;
+    border-radius: 100px;
+    height: 100%;
+}
+.switch-ui .switch-inner .switch-inner-checked {
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    transition: margin-inline-start .2s ease-in-out,margin-inline-end .2s ease-in-out;
+    pointer-events: none;
+}
+
+.switch-ui .switch-inner .switch-inner-unchecked {
+    margin-top: -22px;
+    margin-inline-start: 24px;
+    margin-inline-end: 9px;
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    transition: margin-inline-start .2s ease-in-out,margin-inline-end .2s ease-in-out;
+    pointer-events: none;
+}
+
+.switch-ui.switch-checked {
+    background-image: linear-gradient(rgba(0, 124, 254), rgba(40, 141, 250));
+    border: 1px solid rgb(189, 208, 236);
+}
+.switch-ui.switch-checked:active {
+    background-image: linear-gradient(rgba(28, 125, 235), rgba(20, 103, 235)) !important;
+}
+.switch-ui.switch-checked .switch-handle {
+    inset-inline-start: calc(100% - 19px);
+}
+.switch-ui.switch-checked .switch-handle::before {
+    border: 1px solid rgba(22, 119, 228);
+}
+.switch-ui.switch-checked .switch-inner .switch-inner-checked {
+    margin-inline-start: 9px;
+    margin-inline-end: 24px;
+}
+.switch-ui.switch-checked .switch-inner .switch-inner-unchecked {
+    margin-inline-start: calc(24px + 100% - 22px);
+    margin-inline-end: calc(9px - 100% + 22px);
+}
+.switch-ui .switch-handle::before {
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    bottom: 0;
+    inset-inline-start: -1px;
+    background-color: #fff;
+    border-radius: 9px;
+    /*box-shadow: 0 2px 4px 0 rgb(0 35 11 / 20%);*/
+    border: 1px solid rgb(204, 198, 197);
+    transition: all .2s ease-in-out;
+    content: "";
+}
+.switch-ui:active {
+    background-color: rgb(207, 202, 200) !important;
+}
+.switch-ui:active .switch-handle::before {
+    background-color: rgb(240, 240, 240) !important;
+}
+
+
+.switch-ui.small {
+    height: 15px;
+    min-width: 27px;
+}
+.switch-ui.small .switch-handle {
+    width: 14px;
+    height: 14px;
+    inset-inline-start: 0;
+}
+.switch-ui.switch-checked.small .switch-handle {
+    inset-inline-start: calc(100% - 13px);
+}
+
+.switch-ui.small .switch-inner .switch-inner-unchecked {
+    margin-inline-start: 19px;
+    margin-inline-end: 6px;
+}
+.switch-ui.switch-checked.small .switch-inner .switch-inner-checked {
+    margin-inline-start: 6px;
+    margin-inline-end: 19px;
+}
+.switch-ui.small .switch-inner .switch-inner-unchecked {
+    margin-top: -22px;
+    margin-inline-start: 19px;
+    margin-inline-end: 6px;
+}
