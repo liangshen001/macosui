@@ -25,6 +25,7 @@ const SidebarHeaderWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 `;
 const SidebarContentWrapper = styled.div`
 `
@@ -36,8 +37,8 @@ const Sidebar: React.FC<PropsWithChildren<SidebarProps>> = (props) => {
     let context = useContext(WindowContext);
     return <>
         <SidebarWrapper>
-            <SidebarHeaderWrapper style={{height: context.toolbar?.props?.mono ? '38px' : '52px'}}>
-                <WindowControls left={context.toolbar?.props?.mono ? 13 : 20}></WindowControls>
+            <SidebarHeaderWrapper style={{height: context.toolbar?.props?.mono ? '38px' : '52px', paddingLeft: context.toolbar?.props?.mono ? '13px' : '20px'}}>
+                <WindowControls/>
             </SidebarHeaderWrapper>
             <SidebarContentWrapper>{props.children}</SidebarContentWrapper>
         </SidebarWrapper>

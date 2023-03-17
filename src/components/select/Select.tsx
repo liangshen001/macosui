@@ -6,7 +6,7 @@ export interface SelectProps {
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Select: ForwardRefRenderFunction<HTMLSelectElement, PropsWithChildren<SelectProps>> = (props, ref) => {
+const Select = React.forwardRef<HTMLSelectElement, PropsWithChildren<SelectProps>>((props, ref) => {
     const [value, setValue] = useState<any>();
     useEffect(() => {
         setValue(props.value);
@@ -27,6 +27,6 @@ const Select: ForwardRefRenderFunction<HTMLSelectElement, PropsWithChildren<Sele
             </div>
         </label>
     </>;
-}
+})
 
 export default Select;

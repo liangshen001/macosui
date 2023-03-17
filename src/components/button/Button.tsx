@@ -40,6 +40,9 @@ const BaseWrapper = styled(FullWrapper)<BaseWrapperProps>`
   font-family: SFPro-Regular,serif;
   font-size: 13px;
   line-height: 16px;
+  //&:active {
+  //  background: #0A82FF;
+  //}
   ${props => props.disabled ? css`
     opacity: 0.5;
   ` : ''}

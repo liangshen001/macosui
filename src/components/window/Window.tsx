@@ -13,9 +13,11 @@ const WindowWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  background: rgba(246, 246, 246, 0.84);
 `;
 const WindowContentWrapper = styled.div`
   flex: 1;
+  overflow: auto;
 `;
 
 export interface WindowProps {

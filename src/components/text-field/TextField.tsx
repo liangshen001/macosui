@@ -45,7 +45,7 @@ const TextFieldInputWrapper = styled.input<TextFieldInputWrapperProps>`
   box-shadow: 0 0 0 0 rgba(0,0,0,0.06), 0 1px 0 0 rgba(0,0,0,0.12);
   padding-inline-start: ${props => props.icon ? 27 : 7}px;
   padding-inline-end: ${props => props.clear ? 27 : 7}px;
-  width: calc(100% - ${props => props.clear && props.icon ? 54 : (props.clear || props.icon ? 34 : 14)}px);
+  width: calc(100% - ${props => props.clear && props.icon ? 54 : (props.clear || props.icon ? 34 : 16)}px);
   font-family: SFPro-Regular,serif;
   font-size: 13px;
   color: rgba(0,0,0,0.85);
@@ -73,7 +73,7 @@ export type TextFieldProps = {
 
 const TextField: React.FC<TextFieldProps> = React.forwardRef<HTMLInputElement, PropsWithChildren<TextFieldProps>>((props, ref) => {
     const [value, setValue] = useState<string | ReadonlyArray<string> | number>();
-    const [focus, setFocus] = useState<boolean>();
+    const [focus, setFocus] = useState<boolean>(false);
     const innerRef = useRef<HTMLInputElement>(null);
 
     useImperativeHandle(ref, () => innerRef.current!);

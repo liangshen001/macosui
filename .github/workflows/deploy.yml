@@ -1,7 +1,7 @@
 name: Build and Deploy
 on:
   push:
-    paths: ["src/**"] # Trigger the action only when files change in the folders defined here
+    paths: ["**"] # Trigger the action only when files change in the folders defined here
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
           persist-credentials: false
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
-          npm install
+          npm ci
           npm run build-storybook
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
@@ -22,3 +22,17 @@ jobs:
           FOLDER: storybook-static # The folder that the build-storybook script generates files.
 #          CLEAN: true # Automatically remove deleted files from the deploy branch
 #          TARGET_FOLDER: docs # The folder that we serve our Storybook files from
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build
+      - run: npx semantic-release
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

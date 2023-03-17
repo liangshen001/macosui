@@ -8,17 +8,18 @@ import {SubtitleWrapper, TitleWrapper} from "../utils/TitleWrapper";
 const ToolbarWrapper = styled.div`
   width: 100%;
   border-radius: 10px 10px 0 0;
-  background: rgba(255,255,255,0.80);
+  background: rgba(246,246,246,0.8);
   //background: #F6F6F6;
   //box-shadow: 0 1px 0 0 rgba(0,0,0,0.05);
   box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  padding-right: 12px;
 `;
 const ToolbarContentWrapper = styled.div`
   flex: 1;
   padding-left: 33px;
-  padding-right: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,8 +44,8 @@ export interface ToolbarProps {
 const Toolbar: React.FC<PropsWithChildren<ToolbarProps>> = (props) => {
     let context = useContext(WindowContext);
     return (
-        <ToolbarWrapper style={{height: props.mono ? '38px' : '52px'}}>
-            {!context.sidebar && <WindowControls left={props.mono ? 13 : 20}/>}
+        <ToolbarWrapper style={props.mono ? {height: '38px', paddingLeft: '13px'} : {height: '52px', paddingLeft: '20px'}}>
+            {!context.sidebar && <WindowControls/>}
             <ToolbarContentWrapper>
                 <HeaderWrapper>
                     <TitleWrapper>{props.title}</TitleWrapper>

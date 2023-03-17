@@ -10,6 +10,10 @@ const TitleBarWrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  padding-left: 8px;
+  box-sizing: border-box;
+  background: rgba(246,246,246,0.8);
+  //border-radius: 5px;
 `;
 
 const TitleBarContentWrapper = styled.div`
@@ -30,7 +34,7 @@ export interface TitleBarProps {
 const TitleBar: React.FC<TitleBarProps> = (props) => {
   return <>
       <TitleBarWrapper>
-          <WindowControls left={8}/>
+          <WindowControls/>
           <TitleBarContentWrapper>
               <TitleWrapper>{props.title}</TitleWrapper>
           </TitleBarContentWrapper>
