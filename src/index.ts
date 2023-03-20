@@ -1,8 +1,5 @@
 
-export * from './components/window/index';
-export * from './components/title-bar/index';
-export * from './components/sidebar/index';
-export * from './components/toolbar/index';
+export * from './components/Window/index';
 export * from './components/button/index';
 export * from './components/select/index';
 export * from './components/checkbox/index';

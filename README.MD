@@ -3,14 +3,11 @@
  [demo](https://liangshen001.github.io/macosui/)
 
 ```typescript jsx
-import { Window, TitleBar } from 'macosui';
+import { Window } from 'macosui';
 
 const Home = () => (
-    <Window>
-        <TitleBar title="Mac App"/>
-        <div>
-            <h1>Content</h1>
-        </div>
+    <Window title="Mac App">
+        <h1>Content</h1>
     </Window>
 );
 ```

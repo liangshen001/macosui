@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {WindowControls} from "../window-controls/WindowControls";
+import {WindowControls} from "./WindowControls";
 import {TitleWrapper} from "../utils/TitleWrapper";
 
 const TitleBarWrapper = styled.div`

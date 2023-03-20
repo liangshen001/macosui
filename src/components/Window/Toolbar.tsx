@@ -1,7 +1,7 @@
 import React, {PropsWithChildren, useContext} from 'react';
 import styled from "styled-components";
-import {WindowControls} from "../window-controls/WindowControls";
-import {WindowContext} from "../utils/WindowContext";
+import {WindowControls} from "./WindowControls";
+import {WindowContext} from "./WindowContext";
 import {SubtitleWrapper, TitleWrapper} from "../utils/TitleWrapper";
 
 
@@ -19,7 +19,6 @@ const ToolbarWrapper = styled.div`
 `;
 const ToolbarContentWrapper = styled.div`
   flex: 1;
-  padding-left: 33px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,7 +35,6 @@ const ActionsWrapper = styled.div`
 
 
 export interface ToolbarProps {
-    title: string;
     subtitle?: string;
     mono?: boolean;
 }
@@ -46,9 +44,9 @@ const Toolbar: React.FC<PropsWithChildren<ToolbarProps>> = (props) => {
     return (
         <ToolbarWrapper style={props.mono ? {height: '38px', paddingLeft: '13px'} : {height: '52px', paddingLeft: '20px'}}>
             {!context.sidebar && <WindowControls/>}
-            <ToolbarContentWrapper>
+            <ToolbarContentWrapper style={{paddingLeft: context.sidebar ? 0 : '33px'}}>
                 <HeaderWrapper>
-                    <TitleWrapper>{props.title}</TitleWrapper>
+                    <TitleWrapper>{context.title}</TitleWrapper>
                     <SubtitleWrapper>{props.subtitle}</SubtitleWrapper>
                 </HeaderWrapper>
                 <ActionsWrapper>{props.children}</ActionsWrapper>

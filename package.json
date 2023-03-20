@@ -4,6 +4,21 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "release": "semantic-release",
+    "build": "rollup -c --bundleConfigAsCjs",
+    "dev": "rollup -c -w --bundleConfigAsCjs",
+    "test": "jest",
+    "pretest": "npm run build",
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "deploy": "npm publish --access public ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liangshen001/macosui.git"
+  },
   "files": [
     "dist",
     "package.json",
@@ -37,6 +52,8 @@
     "@rollup/plugin-node-resolve": "^7.0.0",
     "@rollup/plugin-typescript": "^11.0.0",
     "@rollup/plugin-url": "^8.0.1",
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/git": "^10.0.1",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
@@ -58,6 +75,7 @@
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-use": "^17.4.0",
     "rollup": "^3.9.1",
     "rollup-plugin-dts": "^5.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -69,37 +87,5 @@
     "ts-jest": "^29.0.5",
     "tslib": "^2.5.0",
     "typescript": "^4.9.4"
-  },
-  "scripts": {
-    "release": "semantic-release",
-    "build": "rollup -c --bundleConfigAsCjs",
-    "dev": "rollup -c -w --bundleConfigAsCjs",
-    "test": "jest",
-    "pretest": "npm run build",
-    "start": "npm run storybook",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "deploy": "npm publish --access public ./"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
-  "release": {
-    "branches": ["master"],
-    "verifyConditions": [
-      "@semantic-release/npm"
-    ],
-    "prepare": [
-      "@semantic-release/npm"
-    ]
-  },
-  "plugins": [
-    "@semantic-release/commit-analyzer",
-    [
-      "@semantic-release/release-notes-generator"
-    ],
-    "@semantic-release/npm",
-    "@semantic-release/github"
-  ]
+  }
 }
